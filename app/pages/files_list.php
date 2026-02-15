@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../helpers.php';
 require_login();
+require_context();
 
 $titleMap = [
   'clients_list' => 'Clientes',

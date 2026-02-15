@@ -19,7 +19,7 @@ $p = $_GET['p'] ?? 'dashboard';
 /**
  * Páginas que NÃO devem renderizar o layout (precisam de headers/redirect sem HTML prévio).
  */
-$noLayout = ['login','logout','user_photo'];
+$noLayout = ['login','logout','user_photo','context_set'];
 
 if ($p === 'logout') {
   require __DIR__ . '/../app/pages/logout.php';
@@ -29,6 +29,12 @@ if ($p === 'logout') {
 if ($p === 'user_photo') {
   require_login();
   require __DIR__ . '/../app/pages/user_photo.php';
+  exit;
+}
+
+if ($p === 'context_set') {
+  require_login();
+  require __DIR__ . '/../app/pages/context_set.php';
   exit;
 }
 

@@ -1,4 +1,5 @@
 <?php
+require_context();
 require_login();
 
 $tables = [
