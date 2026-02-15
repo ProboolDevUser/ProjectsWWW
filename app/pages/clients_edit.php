@@ -1,4 +1,5 @@
 <?php
+require_context();
 require_once __DIR__ . '/../helpers.php';
 require_once __DIR__ . '/../auth.php';
 require_role(['admin','consultor']);

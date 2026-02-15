@@ -1,4 +1,6 @@
 <?php
+require __DIR__ . '/context_bar.php';
+
 $p    = $_GET['p'] ?? 'dashboard';
 $cur  = $p;
 $user = function_exists('current_user') ? current_user() : null;

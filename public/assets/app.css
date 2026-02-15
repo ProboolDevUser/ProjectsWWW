@@ -922,3 +922,46 @@ body{
   max-width: 240px !important;
   width: auto !important;
 }
+
+.pb-contextbar{
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: rgba(11, 15, 24, 0.75);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: 5px;
+  box-shadow: 0 0 14px rgba(245, 166, 35, 0.12);
+}
+
+.pb-contextform{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.pb-contextitem{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.pb-contexticon{
+  color:#F5A623;
+  font-size:18px;
+  filter: drop-shadow(0 0 6px rgba(245, 166, 35, 0.35));
+}
+
+.pb-contextselect{
+  background: rgba(7, 8, 11, 0.9);
+  color: #eaeaea;
+  border: 1px solid rgba(245, 166, 35, 0.28);
+  border-radius: 5px;
+  padding: 8px 10px;
+  outline: none;
+  min-width: 240px;
+}
+
+.pb-contextselect:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
