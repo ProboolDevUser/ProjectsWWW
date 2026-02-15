@@ -1,0 +1,924 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg0:#07080B;
+  --bg1:#0B0F18;
+  --bg2:#0D1424;
+
+  --panel0: rgba(10,12,18,.70);
+  --panel1: rgba(16,20,32,.78);
+  --panel2: rgba(18,26,44,.86);
+
+  --text:#E9EEF7;
+  --muted:#A2AFc5;
+
+  --stroke: rgba(255,255,255,.10);
+  --stroke2: rgba(255,184,77,.22);
+
+  --shadow: 0 14px 40px rgba(0,0,0,.55);
+  --shadow2: 0 22px 60px rgba(0,0,0,.65);
+
+  --gold1:#F7C766;
+  --gold2:#F5A623;
+
+  --radius:18px;
+  --radius2:22px;
+
+  --glowGold: 0 0 16px rgba(245,166,35,.22);
+  --glowSoft: 0 0 22px rgba(255,255,255,.06);
+}
+
+html,body{height:100%;}
+body{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 15% 12%, rgba(245,166,35,.14), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(0,153,255,0), transparent 55%),
+    radial-gradient(800px 600px at 50% 110%, rgba(255,255,255,.05), transparent 65%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 55%, var(--bg2));
+}
+
+a{color:inherit;text-decoration:none;}
+a:hover{opacity:.96;}
+
+.pb-shell{ min-height: calc(100vh - 62px); }
+.pb-muted{ color: var(--muted); }
+
+
+
+.pb-logo{ height: 34px; width:auto; display:block; filter: drop-shadow(0 10px 24px rgba(0,0,0,.6)); }
+@media (min-width: 992px){ .pb-logo{ height: 38px; } }
+
+.pb-card{
+  border-radius: var(--radius2);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+    linear-gradient(180deg, var(--panel1), var(--panel2));
+  border: 1px solid var(--stroke);
+  box-shadow: var(--shadow);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease, filter .12s ease;
+
+  padding: 14px 16px;
+}
+
+/* Cartões do dashboard: mais espaço interno */
+.pb-card.pb-stat{ padding: 22px 24px; }
+.pb-card:hover{
+  border-color: var(--stroke2);
+  box-shadow: var(--shadow2);
+  transform: translateY(-1px);
+  filter: saturate(1.02);
+}
+
+.pb-divider{ height:1px; background: rgba(255,255,255,.08); margin: .8rem 0; }
+
+.pb-btn-gold{
+  background: linear-gradient(180deg, var(--gold1), var(--gold2));
+  color:#121212;
+  border: 0;
+  box-shadow: var(--glowGold);
+}
+.pb-btn-gold:hover{ filter: brightness(1.04); }
+
+.btn-outline-secondary{
+  border-color: rgba(255,255,255,.14) !important;
+  color: var(--text) !important;
+}
+.btn-outline-secondary:hover{ background: rgba(255,255,255,.06) !important; }
+
+.form-control, .form-select{
+  background: rgba(8,10,16,.62) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  color: var(--text) !important;
+  border-radius: 14px !important;
+}
+.form-control:focus, .form-select:focus{
+  border-color: rgba(255,184,77,.28) !important;
+  box-shadow: var(--glowGold) !important;
+}
+.form-control::placeholder{ color: rgba(162,175,197,.72); }
+
+.table{
+  --bs-table-bg: transparent;
+  --bs-table-color: var(--text);
+  --bs-table-border-color: rgba(255,255,255,.08);
+}
+.table thead th{
+  color: var(--muted);
+  font-weight:600;
+  border-bottom: 1px solid rgba(255,255,255,.10);
+}
+.table tbody tr:hover{ background: rgba(255,255,255,.03); }
+
+.pb-sidebar{
+  border-radius: var(--radius2);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+    linear-gradient(180deg, rgba(10,12,18,.75), rgba(16,20,32,.78));
+  border: 1px solid rgba(255,184,77,.12);
+  box-shadow: var(--shadow);
+}
+
+.pb-side-link{
+  display:flex; align-items:center; gap:.65rem;
+  padding: .62rem .78rem;
+  border-radius: 14px;
+  color: rgba(162,175,197,.92);
+  position:relative;
+  transition: background .12s ease, color .12s ease, transform .12s ease, border-color .12s ease;
+  border: 1px solid transparent;
+}
+.pb-side-link:hover{
+  background: rgba(255,255,255,.05);
+  color: var(--text);
+  transform: translateX(1px);
+}
+.pb-side-link.active{
+  background: rgba(245,166,35,.10);
+  border-color: rgba(245,166,35,.22);
+  color: var(--text);
+}
+.pb-side-link.active:before{
+  content:"";
+  position:absolute;
+  left:-6px; top:10px; bottom:10px;
+  width:3px; border-radius:999px;
+  background: linear-gradient(180deg, var(--gold1), var(--gold2));
+  box-shadow: var(--glowGold);
+}
+
+.pb-icon{ width:18px; height:18px; display:inline-flex; align-items:center; justify-content:center; }
+
+.pb-top-tabs .nav-link{
+  color: rgba(162,175,197,.92);
+  border-radius: 12px;
+  padding: .45rem .65rem;
+  border: 1px solid transparent;
+}
+.pb-top-tabs .nav-link:hover{
+  background: rgba(255,255,255,.04);
+  color: var(--text);
+}
+.pb-top-tabs .nav-link.active{
+  background: rgba(245,166,35,.12);
+  border-color: rgba(245,166,35,.24);
+  color: var(--text);
+  box-shadow: var(--glowSoft);
+}
+
+.pb-user{
+  display:flex; align-items:center; gap:.6rem;
+  padding: .25rem .45rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.18);
+}
+.pb-user img{
+  width:30px; height:30px; border-radius:50%;
+  border: 1px solid rgba(255,255,255,.14);
+}
+.pb-user .name{ font-size:.85rem; font-weight:600; line-height:1.1; }
+.pb-user .role{ font-size:.72rem; color: var(--muted); line-height:1.1; }
+
+.pb-footer{
+  height: 46px;
+  border-top: 1px solid rgba(255,184,77,.12);
+  background: linear-gradient(180deg, rgba(10,12,18,.55), rgba(10,12,18,.78));
+  backdrop-filter: blur(10px);
+  color: rgba(162,175,197,.88);
+}
+.pb-footer .dot{
+  width:7px;height:7px;border-radius:50%;
+  background: rgba(245,166,35,.9);
+  box-shadow: var(--glowGold);
+  display:inline-block;
+  margin-right:.5rem;
+}
+
+
+/* V004 tweaks */
+.pb-appframe{
+  margin: 0px;
+  border-radius: 5px !important;
+  border: 1px solid rgba(245,166,35,.22);
+  box-shadow: 0 20px 70px rgba(0,0,0,.65);
+  overflow: hidden;
+  background: rgba(0,0,0,.10);
+}
+
+.pb-logo{ height: 40px !important; }
+@media (min-width: 992px){ .pb-logo{ height: 44px !important; } }
+
+.pb-user{ border-color: rgba(245,166,35,.14) !important; }
+.pb-footer{
+  border-top: 1px solid rgba(245,166,35,.14) !important;
+}
+
+
+
+/* V006 – Login HD background */
+
+.pb-login-bg{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:
+    radial-gradient(1000px 600px at 15% 20%, rgba(245,166,35,.28), transparent 60%),
+    radial-gradient(1200px 700px at 85% 30%, rgba(0,120,255,.10), transparent 65%),
+    linear-gradient(135deg, #07080B 0%, #0B0F18 45%, #111827 100%);
+  position:relative;
+  overflow:hidden;
+}
+
+.pb-login-bg:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size: 70px 70px;
+  opacity:.15;
+}
+
+.pb-login-card{
+  width:100%;
+  max-width:440px;
+  border-radius:5px;
+  padding:34px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+    linear-gradient(180deg, rgba(15,18,25,.92), rgba(10,12,18,.95));
+  border:1px solid rgba(245,166,35,.30);
+  box-shadow:
+    0 0 0 1px rgba(245,166,35,.20),
+    0 35px 90px rgba(0,0,0,.75),
+    0 0 42px rgba(245,166,35,.16),
+    0 0 130px rgba(245,166,35,.09);
+  position:relative;
+  z-index:2;
+}
+
+.pb-login-logo{
+  height: 96px;
+  max-width: 520px;
+  margin: 0 auto 22px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  filter: drop-shadow(0 15px 35px rgba(0,0,0,.7));
+}
+
+.pb-login-logo-img{
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.pb-login-title{
+  text-align:center;
+  font-weight:600;
+  margin-bottom:22px;
+  color:#E9EEF7;
+  letter-spacing:.5px;
+}
+
+.pb-login-footer{
+  text-align:center;
+  margin-top:20px;
+  font-size:.82rem;
+  color:rgba(255,255,255,.55);
+}
+
+
+/* V008 tweaks */
+html{ font-size: 15px; } /* ligeiramente mais pequeno */
+
+@media (min-width: 1200px){
+  html{ font-size: 14.5px; }
+}
+
+/* Sidebar mais estreita */
+@media (min-width: 992px){
+  .pb-sidebar{ padding: .55rem !important; }
+}
+
+/* Colunas: sidebar mais estreita (override bootstrap widths) */
+.pb-col-sidebar{ width: 250px; max-width: 250px; }
+@media (min-width: 1200px){
+  .pb-col-sidebar{ width: 240px; max-width: 240px; }
+}
+@media (max-width: 991.98px){
+  .pb-col-sidebar{ width: auto; max-width: none; }
+}
+
+/* Logo no topo: ocupa a largura do menu lateral e fica maior */
+.pb-brand-wrap{
+  width: 240px;
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+}
+@media (min-width: 1200px){
+  .pb-brand-wrap{ width: 240px; }
+}
+.pb-logo{
+  height: 52px !important;
+}
+@media (min-width: 992px){
+  .pb-logo{ height: 56px !important; }
+}
+
+/* Remover "azulado" (top highlight) do fundo e do topo */
+body{
+  background:
+    radial-gradient(1200px 600px at 15% 12%, rgba(245,166,35,.14), transparent 60%),
+    radial-gradient(900px 500px at 80% 30%, rgba(0,153,255,0), transparent 55%),
+    radial-gradient(800px 600px at 50% 110%, rgba(255,255,255,.05), transparent 65%),
+    linear-gradient(180deg, var(--bg0), var(--bg1) 55%, var(--bg2)) !important;
+}
+
+/* Tabs topo como botões reais (pills) */
+.pb-top-tabs .nav-link{
+  padding: .42rem .78rem !important;
+  border-radius: 999px !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+  background: rgba(0,0,0,.18) !important;
+}
+.pb-top-tabs .nav-link:hover{
+  background: rgba(255,255,255,.06) !important;
+}
+.pb-top-tabs .nav-link.active{
+  background: rgba(245,166,35,.14) !important;
+  border-color: rgba(245,166,35,.32) !important;
+  box-shadow: var(--glowGold) !important;
+}
+
+/* Página sem "ar" inútil na zona do topo */
+.pb-shell{ padding-top: .6rem !important; }
+
+
+/* V009 tweaks */
+.pb-card{ border-radius: 12px !important; }
+.pb-sidebar{ border-radius: 12px !important; }
+
+/* Tabs com o mesmo tamanho do nome do utilizador (aprox .85rem) */
+.pb-top-tabs .nav-link{ font-size: .85rem !important; }
+
+/* Remover qualquer barra/realce azulado no topo do contentor principal */
+.pb-shell{
+  background: transparent !important;
+}
+.pb-shell:before, .pb-shell:after{ display:none !important; }
+
+
+/* V010 – Tema Base Estável */
+:root{
+  --radius: 5px;
+  --radius2: 5px;
+}
+
+body{
+  font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* Tudo com 5px */
+.pb-appframe{ border-radius: 5px !important; }
+.pb-card{ border-radius: 5px !important; }
+.pb-sidebar{ border-radius: 5px !important; }
+.form-control, .form-select{ border-radius: 5px !important; }
+.pb-side-link{ border-radius: 5px !important; }
+.pb-top-tabs .nav-link{ border-radius: 999px !important; } /* botões pill mantêm-se */
+.btn{ border-radius: 5px; }
+
+/* Topbar sem qualquer nuance azul */
+
+
+/* Layout: sidebar até ao fundo */
+.pb-shell{
+  min-height: calc(100vh - 62px - 46px);
+  display:flex;
+  flex-direction:column;
+}
+.pb-shell > .row{
+  flex:1;
+  align-items:stretch;
+}
+.pb-col-sidebar{
+  display:flex;
+}
+.pb-sidebar{
+  width:100%;
+  flex:1;
+  min-height:100%;
+}
+
+/* remover qualquer highlight/top strip no container principal */
+.pb-shell:before, .pb-shell:after{ content:none !important; display:none !important; }
+
+
+/* V011 – Refinamento final visual */
+body{
+  font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+}
+
+/* Tabs topo com raio real 5px */
+.pb-top-tabs .nav-link{
+  border-radius: 5px !important;
+  font-weight: 500;
+  letter-spacing: .2px;
+}
+
+/* Remover completamente qualquer azul residual */
+body{
+  background:
+    radial-gradient(1200px 600px at 15% 12%, rgba(245,166,35,.14), transparent 60%),
+    linear-gradient(180deg, #07080B, #0B0F18 55%, #111827) !important;
+}
+
+/* Garantir que não existe qualquer linha azul no topo */
+.pb-topbar,
+.pb-appframe,
+.pb-shell{
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* Logo centrado na largura do menu lateral */
+.pb-brand-wrap{
+  width: 240px;
+  display:flex;
+  justify-content:center !important;
+  align-items:center;
+}
+
+.pb-logo{
+  display:block;
+  margin:0 auto;
+}
+
+/* Garantir 5px em todos os elementos */
+.pb-appframe,
+.pb-card,
+.pb-sidebar,
+.form-control,
+.form-select,
+.btn,
+.pb-side-link{
+  border-radius:5px !important;
+}
+
+
+/* V012 – Correção definitiva topo */
+/* Garantir que o logo ocupa a largura do menu lateral e fica centrado */
+.navbar-brand{
+  width: 240px !important;
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  margin: 0 auto !important;
+}
+
+.pb-logo{
+  margin: 0 auto !important;
+}
+
+/* REMOVER DEFINITIVAMENTE A LINHA/BARRA DO TOPO */
+
+
+.pb-appframe{
+  border-top: none !important;
+  box-shadow: none !important;
+}
+
+/* Se existir qualquer pseudo-elemento a criar linha */
+.pb-topbar:before,
+.pb-topbar:after,
+.pb-appframe:before,
+.pb-appframe:after{
+  content: none !important;
+  display:none !important;
+}
+
+/* Garantir que não há linha separadora invisível */
+
+
+
+/* V013 – Fonte Ubuntu + correção barra topo + ajuste logo */
+body{
+  font-family: "Ubuntu", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif !important;
+}
+
+/* Logo 32px para a esquerda (desktop) */
+@media (min-width: 992px){
+  .navbar-brand{
+    transform: translateX(-32px);
+  }
+}
+
+/* Barra teimosa: vem do contorno superior do appframe/topo. Mantemos contorno nas laterais/baixo, mas removemos topo. */
+.pb-appframe{
+  border-top: 0 !important;
+  outline: none !important;
+}
+
+/* Garantir que não existe qualquer "linha" criada por sombras/gradientes */
+
+
+/* Caso o browser esteja a desenhar highlight por focus/outline */
+*:focus{ outline: none !important; box-shadow: none !important; }
+
+
+/* V014 – Ajustes finais definitivos */
+/* --- LOGO: mover 10px para a direita (antes -32px → agora -22px) --- */
+@media (min-width: 992px){
+  .navbar-brand{
+    transform: translateX(-22px) !important;
+  }
+}
+
+/* --- REMOÇÃO ABSOLUTA DA BARRA AZUL --- */
+/* Eliminar qualquer gradiente no topo do body */
+html, body{
+  background-color: #0B0F18 !important;
+}
+
+body{
+  background-image: none !important;
+}
+
+/* Remover qualquer linha herdada do container principal */
+.pb-appframe{
+  border-top: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Garantir que topbar não tem qualquer overlay */
+
+
+/* --- UNIFORMIZAR TAMANHO DE LETRA EM TODO O WEBSITE --- */
+html{
+  font-size: 15px !important;
+}
+
+body, 
+.pb-side-link,
+.pb-top-tabs .nav-link,
+.pb-page-title,
+.pb-card,
+.form-control,
+.form-select,
+.btn{
+  font-size: 15px !important;
+}
+
+
+/* V015 – Repor moldura dourada + fundo premium sem azul */
+/* Fundo premium: ouro + sombra, sem azul */
+html, body{
+  background-color: #07080B !important;
+}
+
+body{
+  background-image:
+    radial-gradient(1100px 650px at 12% 18%, rgba(245,166,35,.22), transparent 60%),
+    radial-gradient(900px 700px at 55% 120%, rgba(255,255,255,.06), transparent 70%),
+    linear-gradient(180deg, #07080B, #0B0F18 55%, #111827) !important;
+}
+
+/* Moldura dourada (sem linha azul): contorno completo mas topo sem highlight/gradiente */
+.pb-appframe{
+  border: 1px solid rgba(245,166,35,.22) !important;
+  border-top: 1px solid rgba(245,166,35,.22) !important; /* volta, mas dourado */
+  box-shadow: 0 20px 70px rgba(0,0,0,.65) !important;
+  background: rgba(0,0,0,.10) !important;
+}
+
+/* Topbar sem barra azul — mantém-se escuro */
+
+
+/* Tabs topo: sem negrito */
+.pb-top-tabs .nav-link{
+  font-weight: 400 !important;
+}
+.pb-top-tabs .nav-link.active{
+  font-weight: 500 !important; /* ligeiro realce só no ativo */
+}
+
+/* Evitar que o browser crie “linha” por outline/shadow em focus no topo */
+.pb-topbar *, .pb-appframe *{
+  outline: none !important;
+}
+
+
+/* V016 – Barra topo eliminada + glow dourado nos contornos */
+/* A tal “barrinha” (0C0C0F) costuma ser o topo do topbar/appframe. Forçamos um topo homogéneo. */
+
+
+/* Garantir que o appframe não cria linha escura no topo por mistura de backgrounds */
+.pb-appframe{
+  background: rgba(0,0,0,.08) !important;
+  border: 1px solid rgba(245,166,35,.22) !important;
+  border-top-color: rgba(245,166,35,.22) !important;
+  /* Glow dourado “no centro” do contorno (efeito premium) */
+  box-shadow:
+    0 20px 70px rgba(0,0,0,.65),
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 60px rgba(245,166,35,.08) !important;
+}
+
+/* Pseudo-elementos nunca podem gerar linhas */
+.pb-topbar:before, .pb-topbar:after, .pb-appframe:before, .pb-appframe:after{
+  content:none !important;
+  display:none !important;
+}
+
+/* Se houver “linha” causada por margem/colapso no primeiro elemento, neutraliza */
+.pb-shell{ margin-top: 0 !important; padding-top: .6rem !important; }
+
+
+/* V017 – Appframe raio 0 + halo dourado completo, sem azulado */
+/* Fundo: reforçar ouro e remover qualquer sensação azulada (nada de ciano/azul) */
+body{
+  background:
+    radial-gradient(1200px 700px at 12% 22%, rgba(245,166,35,.26), transparent 62%),
+    radial-gradient(900px 700px at 55% 120%, rgba(255,255,255,.05), transparent 72%),
+    linear-gradient(180deg, #07080B 0%, #0B0F18 55%, #0B0C10 100%) !important;
+}
+
+/* Container principal (appframe): raio 0, sombra/halo dourado a toda a volta */
+.pb-appframe{
+  border-radius: 0 !important;
+  border: 1px solid rgba(245,166,35,.22) !important;
+  background: rgba(0,0,0,.10) !important;
+
+  /* Halo dourado externo + profundidade (all around) */
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.02),
+    0 18px 70px rgba(0,0,0,.70),
+    0 0 70px rgba(245,166,35,.18),
+    0 0 140px rgba(245,166,35,.08),
+    inset 0 0 0 1px rgba(255,255,255,.03),
+    inset 0 0 80px rgba(245,166,35,.07) !important;
+}
+
+/* Para manter consistência: topbar não cria “faixa” — integra com o frame */
+
+
+/* Sidebar e cards mantêm 5px como definido anteriormente */
+.pb-sidebar, .pb-card{ border-radius: 5px !important; }
+
+/* =====================================================
+   TOPBAR DEFINITIVA – TRANSPARENTE (LIMPO E ESTÁVEL)
+   ===================================================== */
+.pb-topbar{
+  background: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+}
+
+
+/* V018 – Base Tables menu UI */
+.pb-side-title{
+  font-weight: 600;
+  padding: .45rem .6rem;
+  color: rgba(255,255,255,.82);
+  border: 1px solid rgba(255,255,255,.10);
+  border-radius: 5px;
+  background: rgba(0,0,0,.18);
+}
+
+.pb-side-mini{
+  opacity: .55;
+  display:flex;
+  align-items:center;
+}
+.pb-side-link:hover .pb-side-mini{ opacity:.9; }
+
+.pb-top-title{
+  align-items:center;
+  padding: .42rem .78rem;
+  border-radius: 5px;
+  border: 1px solid rgba(245,166,35,.22);
+  background: rgba(0,0,0,.18);
+  color: rgba(255,255,255,.85);
+  margin-right: .6rem;
+  height: 34px;
+}
+.pb-pill-icon{
+  width: 34px;
+  height: 34px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 5px;
+  border: 1px solid rgba(245,166,35,.22);
+  background: rgba(0,0,0,.18);
+}
+.pb-btn-outline{
+  border: 1px solid rgba(255,255,255,.14) !important;
+  color: rgba(255,255,255,.82) !important;
+  background: rgba(0,0,0,.14) !important;
+}
+.pb-btn-outline:hover{
+  border-color: rgba(245,166,35,.25) !important;
+  box-shadow: 0 0 0 3px rgba(245,166,35,.08) !important;
+}
+
+
+/* V026 – Dashboard (informação) */
+.pb-stat-emoji{
+  width: 44px;
+  height: 44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius: 10px;
+  border: 1px solid rgba(245,166,35,.25);
+  background: rgba(0,0,0,.10);
+  box-shadow: 0 0 30px rgba(245,166,35,.10), inset 0 0 0 1px rgba(255,255,255,.02);
+  filter: saturate(1.2);
+  font-size: 22px;
+}
+
+/* ------------------------------------------------------------
+   Overrides de consolidação (V044)
+   ------------------------------------------------------------ */
+
+/* Logo no topo e no login: garantir dimensões consistentes */
+.pb-logo{ height:44px !important; width:auto !important; max-width:240px !important; }
+.pb-login-logo-img{ max-height:96px !important; width:auto !important; }
+
+/* Cartões do dashboard: padding interno consistente */
+.pb-card{ padding:22px 24px !important; }
+
+/* Login – alinhamento profissional (campos em linhas distintas e botão à direita) */
+.pb-login-form{
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.pb-field{ display:block; }
+
+.pb-login-card .pb-label{
+  display:block;
+  margin:0 0 8px 0;
+  font-size:13px;
+  color:rgba(255,255,255,.85);
+}
+
+.pb-login-card .pb-input{
+  width:100%;
+}
+
+.pb-login-actions{
+  display:flex;
+  justify-content:flex-end;
+  margin-top:4px;
+}
+
+.pb-login-actions .pb-btn{
+  width:auto;
+  min-width:140px;
+  padding-left:18px;
+  padding-right:18px;
+}
+
+/* V052 – Logo: tamanho controlado, alinhado ao contentor do menu lateral (sem “gigante”) */
+.pb-brand-wrap{
+  width: 240px !important;
+  max-width: 240px !important;
+  justify-content: center !important;
+  padding: .35rem .55rem !important; /* mesmo “respiro” do menu */
+}
+
+.pb-logo{
+  display:block !important;
+  width: auto !important;
+  height: 54px !important;
+  max-width: 100% !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 991.98px){
+  .pb-logo{ height: 46px !important; }
+}
+
+/* ------------------------------------------------------------
+   V053 – Consolidação UI (logo + tabelas)
+   ------------------------------------------------------------ */
+
+/* Logo no topo: ligeiramente mais pequeno e contido na largura do menu lateral */
+.pb-brand-wrap,
+.navbar-brand{
+  width: 250px !important; /* igual à sidebar */
+  max-width: 250px !important;
+  transform: none !important;
+  margin: 0 !important;
+  justify-content: center !important;
+}
+
+.pb-logo{
+  /* alinhado à largura do menu lateral (sem “estoiro” visual) */
+  height: 48px !important;
+  max-width: 240px !important;
+  width: auto !important;
+}
+
+@media (max-width: 991.98px){
+  .pb-logo{ height: 42px !important; max-width: 220px !important; }
+}
+
+/* Tabelas internas: legibilidade e espaçamento */
+.pb-table{
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+.pb-table thead th{
+  padding: 10px 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,.88);
+  border-bottom: 1px solid rgba(255,255,255,.10);
+  white-space: nowrap;
+}
+.pb-table thead th:not(:last-child),
+.pb-table tbody td:not(:last-child){
+  border-right: 1px solid rgba(255,255,255,.06);
+}
+.pb-table tbody td{
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  vertical-align: middle;
+}
+.pb-table tbody tr:hover td{
+  background: rgba(255,255,255,.03);
+}
+
+.pb-table-wrap{ overflow:auto; }
+
+
+/* =============================================================
+   V056 – Ajuste final de logo (pedido)
+   ============================================================= */
+.pb-logo{
+  /* alinhado à largura do menu lateral (sem “estoiro” visual) */
+  height: 68px !important;
+  max-width: 240px !important;
+  width: auto !important;
+}
+
+/* =============================================================
+   V056 – Botões: eliminar “azul” (uniformizar com o estilo dourado)
+   ============================================================= */
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:hover{
+  background: linear-gradient(180deg, rgba(245,166,35,.95), rgba(214,140,22,.95)) !important;
+  border-color: rgba(245,166,35,.65) !important;
+  color: #121212 !important;
+  box-shadow: 0 0 0 3px rgba(245,166,35,.10) !important;
+}
+
+.btn-outline-primary{
+  border-color: rgba(245,166,35,.35) !important;
+  color: rgba(255,255,255,.86) !important;
+}
+.btn-outline-primary:hover{
+  background: rgba(245,166,35,.14) !important;
+  border-color: rgba(245,166,35,.55) !important;
+  box-shadow: 0 0 0 3px rgba(245,166,35,.10) !important;
+}
+
+/* Avatar circular (utilizadores) */
+.pb-avatar{
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(245,166,35,.22);
+  box-shadow: 0 0 30px rgba(0,0,0,.35);
+}
+.pb-avatar--lg{
+  width: 84px;
+  height: 84px;
+}
+
+/* V057 – Logo alinhado ao menu lateral */
+.pb-logo{
+  /* alinhado à largura do menu lateral (sem “estoiro” visual) */
+  height: 68px !important;
+  max-width: 240px !important;
+  width: auto !important;
+}
