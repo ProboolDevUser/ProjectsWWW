@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . '/context_bar.php';
 
 $p    = $_GET['p'] ?? 'dashboard';
 $cur  = $p;
@@ -31,15 +30,27 @@ $isBaseTablesModule = in_array($p, [
 
 <nav class="navbar pb-topbar">
   <div class="container-fluid">
-    <div class="d-flex align-items-center gap-2">
-      <button class="btn btn-outline-secondary btn-sm d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#pbOffcanvas" aria-label="Menu">
-        <i class="bi bi-list"></i>
-      </button>
+    <div class="d-flex align-items-center gap-2 pb-top-left">
+  <button class="btn btn-outline-secondary btn-sm d-lg-none" type="button"
+          data-bs-toggle="offcanvas" data-bs-target="#pbOffcanvas" aria-label="Menu">
+    <i class="bi bi-list"></i>
+  </button>
 
-	  <a class="navbar-brand pb-brand-wrap d-flex align-items-center justify-content-center" href="index.php?p=dashboard" aria-label="ProBool Project Hub">
-        <img class="pb-logo" src="assets/img/ProboolProjectHub.png" alt="ProBool Project Hub">
-      </a>
-    </div>
+  <a class="navbar-brand pb-brand-wrap d-flex align-items-center justify-content-center"
+     href="index.php?p=dashboard" aria-label="ProBool Project Hub">
+    <img class="pb-logo" src="assets/img/ProboolProjectHub.png" alt="ProBool Project Hub">
+  </a>
+</div>
+
+<div class="pb-top-center">
+  <?php
+    // Não mostrar no módulo "Tabelas base"
+    if (!$isBaseTablesModule) {
+      require __DIR__ . '/context_bar.php';
+    }
+  ?>
+</div>
+
 
     <?php if ($user): ?>
 
